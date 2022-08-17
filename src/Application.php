@@ -16,11 +16,13 @@ declare(strict_types=1);
  */
 namespace App;
 
+use App\Service\CalendarService;
 use Cake\Core\Configure;
 use Cake\Core\ContainerInterface;
 use Cake\Datasource\FactoryLocator;
 use Cake\Error\Middleware\ErrorHandlerMiddleware;
 use Cake\Http\BaseApplication;
+use Cake\Http\Client;
 use Cake\Http\Middleware\BodyParserMiddleware;
 use Cake\Http\Middleware\CsrfProtectionMiddleware;
 use Cake\Http\MiddlewareQueue;
@@ -115,6 +117,10 @@ class Application extends BaseApplication
      */
     public function services(ContainerInterface $container): void
     {
+        $container->add(Client::class);
+
+        $container->add(CalendarService::class)
+            ->addArgument(Client::class);
     }
 
     /**
