@@ -17,6 +17,7 @@ declare(strict_types=1);
 namespace App;
 
 use App\Service\CalendarService;
+use App\View\Serializers;
 use Cake\Core\Configure;
 use Cake\Core\ContainerInterface;
 use Cake\Datasource\FactoryLocator;
@@ -64,8 +65,6 @@ class Application extends BaseApplication
         if (Configure::read('debug')) {
             $this->addPlugin('DebugKit');
         }
-
-        // Load more plugins here
     }
 
     /**

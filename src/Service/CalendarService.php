@@ -26,16 +26,17 @@ class CalendarService
         $this->CalendarItems = $this->fetchTable('CalendarItems');
     }
 
-    public function getCalendarList()
+    /**
+ * @param bool $refresh 
+ */
+    public function getCalendarList(bool $refresh = false)
     {
-        $response = $this->client->get('https://calendar.google.com/api/1');
-        $data = $response->getJson();
+        if ($refresh) {
+            $response = $this->client->get('https://calendar.google.com/api/1');
+            $data = $response->getJson();
+            // TODO insert data into calendar_items table.
+        }
 
-        return $data ?? [];
-    }
-
-    public function getLocal()
-    {
         return $this->CalendarItems->find()->toArray();
     }
 }

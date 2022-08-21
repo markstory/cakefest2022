@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 namespace App\Model\Table;
 
+use App\Model\Entity\CalendarItem;
+use App\Serializers\CalendarItemSerializer;
+use App\View\Serializers;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
@@ -47,6 +50,8 @@ class CalendarItemsTable extends Table
             'foreignKey' => 'user_id',
             'joinType' => 'INNER',
         ]);
+
+        Serializers::map(CalendarItem::class, CalendarItemSerializer::class);
     }
 
     /**
