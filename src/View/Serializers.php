@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\View;
 
+use App\Serializers\ScalarSerializer;
 use InvalidArgumentException;
 
 class Serializers
@@ -28,6 +29,9 @@ class Serializers
 
     public static function get(string $type): SerializerInterface
     {
+        if (!isset(static::$map[$type])) {
+            throw new InvalidArgumentException("Unknown serializer type for $type");
+        }
         if (!isset(static::$built[$type])) {
             $class = static::$map[$type] ?? ScalarSerializer::class;
             static::$built[$type] = new $class();

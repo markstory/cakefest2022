@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Serializers;
 
 use App\Model\Entity\CalendarItem;
+use App\Model\Entity\User;
 use App\View\SerializerInterface;
 use App\View\Serializers;
 use Cake\ORM\Locator\LocatorAwareTrait;
@@ -19,13 +20,13 @@ class CalendarItemSerializer implements SerializerInterface
      */
     public function prepare(array $items, array $context)
     {
-        if (isset($context['include']) && in_array('user', $context['include'])) {
+        if (isset($context['include']) && in_array('user', $context['include'], true)) {
             $userIds = array_map(fn($item) => $item->user_id, $items);
             $userMap = $this->fetchTable('Users')->find()
                 ->where(['Users.id IN' => array_unique($userIds)])
                 ->all()
-                ->groupBy('id');
-            $this->attrs['users'] = $userMap;
+                ->indexBy('id');
+            $this->attrs['users'] = $userMap->toArray();
         }
     }
 
@@ -44,9 +45,9 @@ class CalendarItemSerializer implements SerializerInterface
             'endTime' => $item->end_time,
         ];
 
-        if (isset($this->attrs['user'][$item->user_id])) {
-            $user = $this->attrs['user'][$item->user_id];
-            $data['user'] = Serializers::get('user')->serialize($user, $context);
+        if (isset($this->attrs['users'][$item->user_id])) {
+            $user = $this->attrs['users'][$item->user_id];
+            $data['user'] = Serializers::get(User::class)->serialize($user, $context);
         }
 
         return $data;

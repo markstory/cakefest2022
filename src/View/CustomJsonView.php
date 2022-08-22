@@ -50,9 +50,11 @@ class CustomJsonView extends SerializedView
                 $serializer ??= Serializers::get(get_debug_type($first));
 
                 $serializer->prepare($value, $context);
-                $output[$key] = $serializer->serialize($value, $context);
+                foreach ($value as $index => $item) {
+                    $output[$key][$index] = $serializer->serialize($item, $context);
+                }
 
-                return;
+                continue;
             }
 
             $serializer ??= Serializers::get(get_debug_type($value));

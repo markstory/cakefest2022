@@ -10,7 +10,7 @@ use Cake\View\JsonView;
 
 class CalendarItemsController extends AppController
 {
-    public function contentTypes(): array
+    public function viewClasses(): array
     {
         return [JsonView::class, CustomJsonView::class];
     }
@@ -19,8 +19,9 @@ class CalendarItemsController extends AppController
     {
         $include = (array)$this->request->getQuery('include');
 
-        $calendars->getCalendarList(refresh: false);
-        $this->viewBuilder()->setOption('serialize', ['calendars']);
-        $this->viewBuilder()->setOption('include', $include);
+        $items = $calendars->getCalendarList(refresh: false);
+        $this->set('calendarItems', $items);
+        $this->viewBuilder()->setOption('serialize', ['calendarItems']);
+        $this->viewBuilder()->setOption('context', ['include' => $include]);
     }
 }
