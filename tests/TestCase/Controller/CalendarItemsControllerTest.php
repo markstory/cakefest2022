@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\CalendarItemsController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
@@ -26,14 +25,15 @@ class CalendarItemsControllerTest extends TestCase
         'app.Users',
     ];
 
-    /**
-     * Test index method
-     *
-     * @return void
-     * @uses \App\Controller\CalendarItemsController::index()
-     */
-    public function testIndex(): void
+    public function testIndexSerialization(): void
     {
-        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    public function testUpdateSimple(): void
+    {
+    }
+
+    public function testUpdateReplaceUser(): void
+    {
     }
 }
