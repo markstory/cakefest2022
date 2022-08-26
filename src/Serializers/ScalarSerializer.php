@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\Serializers;
 
-use App\View\SerializerInterface;
+use App\Service\SerializerInterface;
 
 class ScalarSerializer implements SerializerInterface
 {

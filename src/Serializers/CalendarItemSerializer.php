@@ -5,8 +5,8 @@ namespace App\Serializers;
 
 use App\Model\Entity\CalendarItem;
 use App\Model\Entity\User;
-use App\View\SerializerInterface;
-use App\View\Serializers;
+use App\Service\SerializerInterface;
+use App\Service\Serializers;
 use Cake\ORM\Locator\LocatorAwareTrait;
 
 class CalendarItemSerializer implements SerializerInterface

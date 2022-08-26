@@ -5,7 +5,7 @@ namespace App\Model\Table;
 
 use App\Model\Entity\CalendarItem;
 use App\Serializers\CalendarItemSerializer;
-use App\View\Serializers;
+use App\Service\Serializers;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;

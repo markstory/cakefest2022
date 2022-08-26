@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace App\Serializers;
 
 use App\Model\Entity\User;
-use App\View\SerializerInterface;
+use App\Service\SerializerInterface;
 use Cake\ORM\Locator\LocatorAwareTrait;
 
 class UserSerializer implements SerializerInterface
