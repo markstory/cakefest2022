@@ -30,6 +30,27 @@ class CalendarItemSerializer implements SerializerInterface
         }
     }
 
+    public function parse(array $data, array $options)
+    {
+        $table = $this->fetchTable('CalendarItems');
+        if (isset($data['id'])) {
+            $item = $table->findById($data['id'])->firstOrFail();
+        } else {
+            $item = $table->newEmptyEntity();
+        }
+        $item = $table->patchEntity($item, $data, $options);
+        if (isset($data['user'])) {
+            // Should probably track depth here so that loops can't be created.
+            // An alternate solution would be to have a UserIncludeSerializer that
+            // wouldn't recurse.
+            $user = Serializers::get(User::class)->parse($data['user'], $options);
+            $item->user = $user;
+            $item->user_id = $user->id;
+        }
+
+        return $item;
+    }
+
     /**
      * @inheritDoc
      */

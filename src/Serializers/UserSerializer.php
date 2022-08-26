@@ -9,6 +9,8 @@ use Cake\ORM\Locator\LocatorAwareTrait;
 
 class UserSerializer implements SerializerInterface
 {
+    use LocatorAwareTrait;
+
     /**
      * @inheritDoc
      */
@@ -27,5 +29,17 @@ class UserSerializer implements SerializerInterface
             'id' => (string)$item->id,
             'username' => $item->username,
         ];
+    }
+
+    public function parse(array $data, array $options)
+    {
+        $table = $this->fetchTable('Users');
+        if (isset($data['id'])) {
+            $item = $table->findById($data['id'])->firstOrFail();
+        } else {
+            $item = $table->newEmptyEntity();
+        }
+
+        return $table->patchEntity($item, $data, $options);
     }
 }

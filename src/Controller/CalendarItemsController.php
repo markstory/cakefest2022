@@ -24,4 +24,16 @@ class CalendarItemsController extends AppController
         $this->viewBuilder()->setOption('serialize', ['calendarItems']);
         $this->viewBuilder()->setOption('context', ['include' => $include]);
     }
+
+    public function update(int $id, CalendarService $calendars)
+    {
+        try {
+            $item = $calendars->update($id, $this->request->getData());
+            $this->set('calendarItem', $item);
+            $this->viewBuilder()->setOption('serialize', ['calendarItem']);
+        } catch (\Exception $e) {
+            $this->set('error', $e->getMessage());
+            $this->viewBuilder()->setOption('serialize', ['error']);
+        }
+    }
 }

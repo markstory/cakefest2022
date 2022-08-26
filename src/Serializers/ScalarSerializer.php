@@ -12,6 +12,11 @@ class ScalarSerializer implements SerializerInterface
         // Unused.
     }
 
+    public function parse(array $data, array $options)
+    {
+        assert(false, 'Should not reach here.');
+    }
+
     /**
      * @inheritDoc
      */

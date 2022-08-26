@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Service;
 
+use App\Model\CalendarItem;
 use Cake\Http\Client;
 use Cake\ORM\Locator\LocatorAwareTrait;
 
@@ -27,8 +28,8 @@ class CalendarService
     }
 
     /**
- * @param bool $refresh 
- */
+     * @param bool $refresh
+     */
     public function getCalendarList(bool $refresh = false)
     {
         if ($refresh) {
@@ -38,5 +39,15 @@ class CalendarService
         }
 
         return $this->CalendarItems->find()->toArray();
+    }
+
+    public function update(int $id, array $data)
+    {
+        $data['id'] = $id;
+        $item = Serializers::get(CalendarItem::class)->parse($data, []);
+        if ($item->hasErrors()) {
+            throw new ValidationError('Validation failed');
+        }
+        $this->CalendarItems->saveOrFail($item);
     }
 }
