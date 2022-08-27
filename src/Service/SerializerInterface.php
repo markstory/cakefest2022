@@ -39,5 +39,5 @@ interface SerializerInterface
      *    is an application specific bag of configuration data.
      * @return mixed The parsed/deserialized form of the request data.
      */
-    public function parse(array $data, array $options): mixed;
+    public function parse(array $data, array $options);
 }

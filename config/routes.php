@@ -57,6 +57,10 @@ return static function (RouteBuilder $routes) {
          */
         $builder->connect('/pages/*', 'Pages::display');
 
+
+        $builder->post('/calendar-items/{id}', 'CalendarItems::update')
+            ->setPass(['id']);
+
         /*
          * Connect catchall routes for all controllers.
          *

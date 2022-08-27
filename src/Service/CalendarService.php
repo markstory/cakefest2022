@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\Service;
 
-use App\Model\CalendarItem;
+use App\Model\Entity\CalendarItem;
 use Cake\Http\Client;
 use Cake\ORM\Locator\LocatorAwareTrait;
 
@@ -49,5 +49,7 @@ class CalendarService
             throw new ValidationError('Validation failed');
         }
         $this->CalendarItems->saveOrFail($item);
+
+        return $item;
     }
 }
