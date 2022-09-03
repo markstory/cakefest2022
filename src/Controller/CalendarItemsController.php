@@ -7,6 +7,7 @@ use App\Controller\AppController;
 use App\Service\CalendarService;
 use App\View\CustomJsonView;
 use Cake\View\JsonView;
+use RuntimeException;
 
 class CalendarItemsController extends AppController
 {
@@ -35,5 +36,10 @@ class CalendarItemsController extends AppController
             $this->set('error', $e->getMessage());
             $this->viewBuilder()->setOption('serialize', ['error']);
         }
+    }
+
+    public function failure()
+    {
+        throw new RuntimeException('Something bad happened.');
     }
 }

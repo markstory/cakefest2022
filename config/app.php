@@ -1,5 +1,6 @@
 <?php
 
+use App\Error\SentryErrorLogger;
 use Cake\Cache\Engine\FileEngine;
 use Cake\Database\Connection;
 use Cake\Database\Driver\Mysql;
@@ -189,6 +190,7 @@ return [
         'log' => true,
         'trace' => true,
         'ignoredDeprecationPaths' => [],
+        'logger' => SentryErrorLogger::class,
     ],
 
     /*
