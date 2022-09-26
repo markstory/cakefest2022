@@ -2026,22 +2026,23 @@
         },
         {
             "name": "cakephp/bake",
-            "version": "2.7.2",
+            "version": "2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/bake.git",
-                "reference": "da7aaf3f2c0ea616997d32f74bf9d551fa0a6454"
+                "reference": "fc7440b14a0b8cc5124164500e8cc3cca5f60fdd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/bake/zipball/da7aaf3f2c0ea616997d32f74bf9d551fa0a6454",
-                "reference": "da7aaf3f2c0ea616997d32f74bf9d551fa0a6454",
+                "url": "https://api.github.com/repos/cakephp/bake/zipball/fc7440b14a0b8cc5124164500e8cc3cca5f60fdd",
+                "reference": "fc7440b14a0b8cc5124164500e8cc3cca5f60fdd",
                 "shasum": ""
             },
             "require": {
                 "brick/varexporter": "^0.3.5",
                 "cakephp/cakephp": "^4.3.0",
                 "cakephp/twig-view": "^1.0.2",
+                "nikic/php-parser": "^4.13.2",
                 "php": ">=7.2"
             },
             "require-dev": {
@@ -2078,7 +2079,7 @@
                 "issues": "https://github.com/cakephp/bake/issues",
                 "source": "https://github.com/cakephp/bake"
             },
-            "time": "2022-09-15T14:45:58+00:00"
+            "time": "2022-09-19T02:34:05+00:00"
         },
         {
             "name": "cakephp/cakephp-codesniffer",
