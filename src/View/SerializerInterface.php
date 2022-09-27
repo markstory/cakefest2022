@@ -8,7 +8,7 @@ interface SerializerInterface
     /**
      * Hook method to prepare additional data for serialization.
      *
-     * While serialize() handles converting single things into 
+     * While serialize() handles converting single things into
      *
      * @param array $value List of values being prepared
      * @param array $context Additional context for generating a response.

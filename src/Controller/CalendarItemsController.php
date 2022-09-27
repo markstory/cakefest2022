@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Controller\AppController;
 use App\Service\CalendarService;
 use App\View\CustomJsonView;
 use Cake\View\JsonView;

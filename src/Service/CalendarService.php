@@ -27,8 +27,8 @@ class CalendarService
     }
 
     /**
- * @param bool $refresh 
- */
+     * @param bool $refresh
+     */
     public function getCalendarList(bool $refresh = false)
     {
         if ($refresh) {

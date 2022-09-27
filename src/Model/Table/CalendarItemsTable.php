@@ -6,7 +6,6 @@ namespace App\Model\Table;
 use App\Model\Entity\CalendarItem;
 use App\Serializers\CalendarItemSerializer;
 use App\View\Serializers;
-use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
@@ -15,7 +14,6 @@ use Cake\Validation\Validator;
  * CalendarItems Model
  *
  * @property \App\Model\Table\UsersTable&\Cake\ORM\Association\BelongsTo $Users
- *
  * @method \App\Model\Entity\CalendarItem newEmptyEntity()
  * @method \App\Model\Entity\CalendarItem newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\CalendarItem[] newEntities(array $data, array $options = [])

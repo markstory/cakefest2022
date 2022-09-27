@@ -15,7 +15,6 @@ declare(strict_types=1);
  */
 namespace App\View;
 
-use App\View\Serializers;
 use Cake\Core\Configure;
 use Cake\View\SerializedView;
 use RuntimeException;

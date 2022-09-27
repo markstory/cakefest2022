@@ -5,7 +5,6 @@ namespace App\Serializers;
 
 use App\Model\Entity\User;
 use App\View\SerializerInterface;
-use Cake\ORM\Locator\LocatorAwareTrait;
 
 class UserSerializer implements SerializerInterface
 {
