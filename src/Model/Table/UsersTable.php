@@ -4,18 +4,16 @@ declare(strict_types=1);
 namespace App\Model\Table;
 
 use App\Model\Entity\User;
+use App\Serializers\UserSerializer;
 use App\Service\Serializers;
-use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
-use App\Serializers\UserSerializer;
 
 /**
  * Users Model
  *
  * @property \App\Model\Table\CalendarItemsTable&\Cake\ORM\Association\HasMany $CalendarItems
- *
  * @method \App\Model\Entity\User newEmptyEntity()
  * @method \App\Model\Entity\User newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\User[] newEntities(array $data, array $options = [])
@@ -29,7 +27,6 @@ use App\Serializers\UserSerializer;
  * @method \App\Model\Entity\User[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
  * @method \App\Model\Entity\User[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
  * @method \App\Model\Entity\User[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
- *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class UsersTable extends Table

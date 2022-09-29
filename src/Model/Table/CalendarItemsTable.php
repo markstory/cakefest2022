@@ -15,7 +15,6 @@ use Cake\Validation\Validator;
  * CalendarItems Model
  *
  * @property \App\Model\Table\UsersTable&\Cake\ORM\Association\BelongsTo $Users
- *
  * @method \App\Model\Entity\CalendarItem newEmptyEntity()
  * @method \App\Model\Entity\CalendarItem newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\CalendarItem[] newEntities(array $data, array $options = [])
